@@ -1,0 +1,85 @@
+Hi Jon,
+
+
+As you work through the Directed Study, you'll be finding lots of research papers. Clearly, you already know how to do this, but there may also be some techniques that you haven't been exposed to before. So, I'm sharing with you the main approaches to finding relevant papers.
+
+
+Keyword Search
+
+ - Most straight-forward, where you simply search online based on keywords that are highly relevant (e.g., "ledger" or "distributed ledger" or "blockchain scalability").
+
+
+If you use Scholar (or something similar like Mendeley or Semantic Scholar) you will r
+
+Most straight-forward, where you simply search online based on keywords that are highly relevant (e.g., "ledger" or "distributed ledger" or "blockchain scalability").etrieve predominantly scientific articles; if you use a general purpose search engine (e.g., Google) you will get more false negatives but also some related material that may not get exposure on Scholar (e.g., github repos).
+
+
+With keyword searches, it's important to keep track of what you have searched for before. The results for "ledger" and "blockchain" may be very different, depending on the underlying algorithm, and a record of your searches is the best way to know if you've covered off all synonyms. Moreover, remember that the results can change over time, as resources on the internet change, search engine algorithms change, and your previous search history influences your future search results.
+
+
+Browsing Periodicals
+
+ - Look directly at the research published in target venues in the last few years.
+
+
+dblp.org is probably the best source for browsing periodicals. This approach is very complimentary to keyword search: you get all the most recent, topical research, but it's not necessarily on your topic. Success with this depends on selecting the right periodicals/conferences.
+
+
+Actually, this is largely how I design course curricula to ensure that I teach even the recent research that I wouldn't have thought to look for. A major advantage is that you don't have to know the keywords in advance, which can be especially helpful if you don't know of alternative terms to express the same thing.
+
+
+For databases, the conferences PVLDB, SIGMOD, and ICDE are the top periodicals. Deciding which are the "top" conferences is very contentious, but I recommend this site as a starting point: csrankings.org. sigmod 2019 in particular has quite a few papers about blockchain and scalability.
+
+A nice thing about browsing periodicals is that they are static. Once you've viewed the papers for any given issue/year, you don't have to look again.
+
+Backward chaining
+
+ - Backward chaining refers to looking at the reference list of papers that you already know are relevant (i.e., chaining the lineage of ideas backward in time).
+
+
+This is one of the easier methods, if you already have a highly relevant, recent paper to start from, as you leverage somebody else's work on paper discovery. It combines especially well with browsing periodicals (to find the relevant recent seed papers). In the related work section of the paper, there should even be a paragraph describing exactly how the reference and the seed paper are related  and/or unrelated.
+
+
+Forward Chaining
+
+ - This is the opposite to backward chaining, enabled by modern tech, in which you look into the future to see which papers were influenced by a seed paper that you already know is relevant
+
+
+
+Forward chaining is less targeted than backward chaining, because you don't know why the later papers cited this and obviously there is no discussion of the future paper in the seed paper. This technique is best used to quickly discover the state-of-the-art once you've found a paper that introduces a problem that you find very interesting.
+
+
+
+Note that combining forward and backward chaining can be extremely effective. Starting from paper p, if you go first back and then forward, you can catch other papers that p didn't cite and possibly should have (can expose research gaps that p doesn't want to admit or did not think of).
+ 
+
+Author Search
+ -Once you find a relevant paper, check what else each of the authors has published (dblp or Scholar)
+
+
+
+Most researchers work in a consistent area for an extended period of time in order to amortise the cost of learning the area. This can really expand your search as you leverage somebody else's experiences. Not only can you see what else they went on to do on a given topic, but you can also see what other topics they worked on; there is a good chance that the other topics are somehow related as well.
+
+
+This approach can also give you a good sense of regional trends and who are the other researchers with whom you may wish to collaborate or at least meet.
+
+
+Alerts/Related Articles
+
+ -Leverage social media recommender systems to find unexpected similarities (often the moment they are available online)
+
+
+Scholar allows you to follow individual authors and also recommends articles based on your browsing behaviour. Mendeley and publisher platforms (e.g., Springer, Elsevier, ACM) have similar "similar article" recommendation features. These can be quite serendipitous. You get the advantage of partially automating some of the paper discovery and, in the case of alerts, advance notice of cutting edge results.
+
+
+--------
+
+
+You already indicated this afternoon that you're using some of these techniques, but hopefully I've exposed you to some new ones as well. Mixing them together usually gives the best results, as each approach has unique advantages.
+
+
+Given the goal of your directed study (identify candidate thesis questions), it's not amiss to have a slight bias towards more recent research, i.e., last three years. That will likely lead towards a hypothesis that is more topical/novel/publishable.
+
+Cheers,
+
+--Sean.
