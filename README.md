@@ -6,6 +6,8 @@
 
 #### Pre-Bitcoin papers and ideas:  
 
-[Pre-Bitcoin](https://github.com/noonespecial009/advanced_topics_in_blockchain_research/tree/master/papers/pre-bitcoin)
+[Hashcash: A Denial of Service Counter-Measure](https://github.com/noonespecial009/advanced_topics_in_blockchain_research/blob/master/papers/pre-bitcoin/hashcash.pdf)
+
+[Wei Dai's B-Money](https://github.com/noonespecial009/advanced_topics_in_blockchain_research/blob/master/papers/pre-bitcoin/wei_dai_bmoney.txt)
 
 
