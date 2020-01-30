@@ -35,11 +35,30 @@ Bitcoin is based on cryptographic proof instead of trust. By assembling blocks i
 
 ##### Ethereum  
   
-###### White paper
+###### White paper  
+
+Introduction/ History  
 - Ethereum was first introduced to the world via Vitalik Buterin in the Ethereum white paper [5]  
-- Ethereum intends, "to provide a blockchain with a built-in fully fledged Turing-complete programming language that can be used to create "contracts" that can be used to encode arbitrary state transition functions."
-- Bitcoin allowed for some programming funtionality which led to various proposals like colored coins and namecoin for domain names
-- 
+- Ethereum intends, "to provide a blockchain with a built-in fully fledged Turing-complete programming language that can be used to create 'contracts' that can be used to encode arbitrary state transition functions."
+- Bitcoin allowed for some programming funtionality which led to various proposals like colored coins and namecoin for domain names (explain more)
+- Vitalik champions the DAO or digital autonomous organization. The assets and bylaws of an entire organization are all written in smart contracts and stored on a blockchain
+- research: e-cash proposals of the 1980s and 1990s
+- research: Hal Finney 2005 introduces a concept of 'reusable proofs of work'. Uses hashcash and b-money but fails because it relies on trusted computing on the backend
+- consensus protocols, like byzantine fault tolerant assumed a network of known participants but in an anomynous setting a network is vulnerable to sybil attacks - a node can create many other nodes to secure a majority share
+- Satoshi's innovation is the idea of creating a decentralized consensus protocol where nodes combine transacations into connected blocks using proof-of-work as a means of participating in the system  
+State Transition System  
+- Bitcoin can be thought of as a 'state transition system'  
+- A state consists of the ownership status of all bitcoins  
+- The transition function takes a state and a transaction and outputs a new state
+- Coins in Bitcoin are technically 'unspent transaction outputs' or UTXO
+- each UTXO has a denomination and an owner defined by a 20 byte address which is the public key. 
+- A transaction has one or more inputs - each input contains a, "reference to an existing UTXO and a cryptographic signature produced by the private key associated with the owner's address, and one or more outputs, with each output containing a new UTXO to be added to the state."
+
+Mining   
+- each transaction in the block must provide a state transition that is valid
+- SHA256 of every block as a 256 bit number must be less than a dynamically adjusted target ex. 2^190 when this paper was written
+- SHA256 is designed to pseudorandom and the only way to find a hash that meets the above criteria is through trial and error
+- To do this the nonce is incremented and then the entire block is hashed again.
 
 ###### Yellow paper
 
