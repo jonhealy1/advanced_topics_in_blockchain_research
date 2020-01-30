@@ -19,7 +19,7 @@ Finally, we will briefly look at a very modern proof-of-stake solution called Al
 
 Hashcash was originally proposed by Adam Back in May 1997 [7] as a means to, "throttle systematic abuse of un-metered internet resources such as email and anonymous remailers." [2] The paper, 'Hashcash - A Denial of Service Counter-Measure' was written five years later in 2002 to provide an overview of the subsequent applications, proposed improvements and results from experiments involving what is called the, 'hashcash CPU cost-function'.  
 
-Unlike other similar cost-functions known to the author at the time, hashcash is 'trapdoor-free'. A trapdoor-free cost function is defined as a cost function, where the server has no advantage in minting tokens. [2] With most cost-functions an opponent can easily create tokens, so asking for tokens to prevent things like spamming is not advantageous or beneficial for security. With hashcash and proof-of-work, only legitimate enitities would likely expend the effort needed to send messages. 
+Unlike other similar cost-functions known to the author at the time, hashcash is 'trapdoor-free'. A trapdoor-free cost function is defined as a cost function where the server has no advantage in minting tokens. [2] With most cost-functions, an opponent can easily create tokens, so asking for tokens to prevent things like spamming is not advantageous or beneficial for security. With hashcash and proof-of-work, only legitimate enitities would likely expend the effort needed to send messages. 
 
 Interestingly, for the purposes of this report, one of the potential applications listed for hashcash is as a minting mechanism for the b-money electronic cash protocol famously proposed by Wei Dai [8] and generally regarded as a precursor to Bitcoin. Beck calls b-money, "an electronic cash scheme without a banking interface." [2]   
 
@@ -32,6 +32,10 @@ For one, non-reversible transactions are never really possible as a central auth
 Another weakness, and this relates to the fact that transactions are potentially reversible, is that the need for trust spreads throughout the system. Nakomoto cites the need for merchants to weary of customers. Merchants must ask for more information than what is needed. Because some fraud is unavoidable, the costs of this aggregated loss is mostly passed to consumers. As Nakomoto states, "cost and payment uncertainties can be avoided in person by using a physical currency" before pointing out that, "no mechanism exists to make payments over a communication channel without a trusted party." [1] Arguably Bitcoin has made this last statement a possibility - maybe in the future a fatal flaw will be found in the protocol and billions of dollars will go missing - and one major feature allowing for this is the concept of proof-of-work developed by Adam Back. [2]
 
 Bitcoin is based on cryptographic proof instead of trust. By assembling blocks in a chain and connecting them all with the hash of the block that came before them, Bitcoin creates a web that is computationally infeasible to reverse. To reverse any transaction, a malicious actor would have to rebuild the blockchain faster than all of the honest nodes in the system combined. There is some economic protection against this type of behaviour because any entity or group of entities with more than 51% of all network mining power would have a large stake in the system and any major breach would cause prices to plummet.
+
+##### Ethereum
+
+
 
 ##### References  
 
