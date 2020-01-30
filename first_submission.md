@@ -29,13 +29,21 @@ The first sentence of the Bitcoin white paper sums up the author's intent quite 
 
 For one, non-reversible transactions are never really possible as a central authority can not avoid mediating dispute. This truth drives up transaction costs and also serves to limit the minimum transaction size that is feasible inside of a payment system. This idea would later develop into a cornerstone of modern blockchain conversation - the idea of micro-transactions. Super small payments to help fuel economic progress that could allow for something like a decentralized video sharing site maybe where you could send someone a fraction of a penny if you like their how-to video on spotting toucans. 
 
-Another weakness, and this relates to the fact that transactions are potentially reversible, is that the need for trust spreads throughout the system. Nakomoto cites the need for merchants to weary of customers. Merchants must ask for more information than what is needed. Because some fraud is unavoidable, the costs of this aggregated loss is mostly passed to consumers. As Nakomoto states, "cost and payment uncertainties can be avoided in person by using a physical currency" before pointing out that, "no mechanism exists to make payments over a communication channel without a trusted party." [1] Arguably Bitcoin has made this last statement a possibility - maybe in the future a fatal flaw will be found in the protocol and billions of dollars will go missing - and one major feature allowing for this is the concept of proof-of-work developed by Adam Back. [2]
+Another weakness, and this relates to the fact that transactions are potentially reversible, is that the need for trust spreads throughout the system. Nakomoto cites the need for merchants to weary of customers. Merchants must ask for more information than what is needed. Because some fraud is unavoidable, the costs of this aggregated loss is mostly passed to consumers. As Nakomoto states, "cost and payment uncertainties can be avoided in person by using a physical currency" before pointing out that, "no mechanism exists to make payments over a communication channel without a trusted party." [1] Arguably Bitcoin has made this last statement a possibility - maybe in the future a fatal flaw will be found in the protocol and billions of dollars will go missing - and one major feature allowing for this is the concept of proof-of-work developed by Adam Back. [2]  
 
-Bitcoin is based on cryptographic proof instead of trust. By assembling blocks in a chain and connecting them all with the hash of the block that came before them, Bitcoin creates a web that is computationally infeasible to reverse. To reverse any transaction, a malicious actor would have to rebuild the blockchain faster than all of the honest nodes in the system combined. There is some economic protection against this type of behaviour because any entity or group of entities with more than 51% of all network mining power would have a large stake in the system and any major breach would cause prices to plummet.
+Bitcoin is based on cryptographic proof instead of trust. By assembling blocks in a chain and connecting them all with the hash of the block that came before them, Bitcoin creates a web that is computationally infeasible to reverse. To reverse any transaction, a malicious actor would have to rebuild the blockchain faster than all of the honest nodes in the system combined. There is some economic protection against this type of behaviour because any entity or group of entities with more than 51% of all network mining power would have a large stake in the system and any major breach would cause prices to plummet.  
 
-##### Ethereum
+##### Ethereum  
+  
+###### White paper
+- Ethereum was first introduced to the world via Vitalik Buterin in the Ethereum white paper [5]  
+- Ethereum intends, "to provide a blockchain with a built-in fully fledged Turing-complete programming language that can be used to create "contracts" that can be used to encode arbitrary state transition functions."
+- Bitcoin allowed for some programming funtionality which led to various proposals like colored coins and namecoin for domain names
+- 
 
+###### Yellow paper
 
+##### Algorand  
 
 ##### References  
 
