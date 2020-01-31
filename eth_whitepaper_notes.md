@@ -110,7 +110,41 @@ Ethereum
 
 Ethereum accounts
 
+- a state is made up of objects called 'accounts' 
+- contains 4 fields:
+    1. nonce: counter to make sure each transaction can only be processed once
+    2. ether balance of account
+    3. account's contract code, if it exists
+    4. account's storage, default = empty
+- Ether is the crypto fuel - used to pay transaction fees
+- 2 types of accounts:
+    1. externally owned accounts: controlled by private keys
+    2. contract accounts: controlled by their contract code
+- externally owned account has no code and someone can send messages from an externally owned account by creating and signing a transaction
+- in contract account - everytime the contract account receives a message its code activates - "this allows it to read and write to internal storage and send other message or create contracts in turn."  
+
+Message and Transactions  
+
+- message are like transactions in Bitcion - 3 differences
+    1. eth message can be created by external entity (like Bitcoin) or contract
+    2. explicit option in eth for messages to contain data
+    3. of recipient of message os contract account can return response - this means eth messages can act as functions
+- transaction: signed data package that stores a message to be sent from an externally owned account
+- trans contains recipient of message, signature identifying sender, amount oether and the data to send, as well as two values - STARTGAS and GASPRICE
+- to prevent infinite loop and exponential blowups - set limit to how many steps of code can execute including initial message and additional message created during execution
+- STARTGAS = limit, GASPRICE = fee to pay miner per computational step
+- if transaction execution runs out of gas all state changes revert - except for the payment of fees, if transactoin execution halts with gas remaining it is refunded to sender. 
+- there is a separate transaction type and message type for creating contract - address of contract is calculated based on hash of the account nonce and transaction data. 
+- first class citizen property - contracts have equivalent powers to external accounts - send message and create other contracts
+- address of contract is calculated based on hash of account nonce and trans data  
+
+Code Execution  
+
 - 
+
+
+
+
 
 
 
