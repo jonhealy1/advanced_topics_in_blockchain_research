@@ -25,7 +25,7 @@ Interestingly, for the purposes of this report, one of the potential application
 
 ##### Bitcoin  
 
-The first sentence of the Bitcoin white paper sums up the author's intent quite clealy: "A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution." [1] Furthermore, Nakamoto talks about the need to prevent double-spending without a corresponding reliance on a trusted third party. There are a couple of weaknesses that are addressed concerning the trust based model. [1] 
+The first sentence of the Bitcoin white paper sums up the author's intent quite clearly: "A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution." [1] Furthermore, Nakamoto talks about the need to prevent double-spending without a corresponding reliance on a trusted third party. There are a couple of weaknesses that are addressed concerning the trust based model. [1] 
 
 For one, non-reversible transactions are never really possible as a central authority can not avoid mediating dispute. This truth drives up transaction costs and also serves to limit the minimum transaction size that is feasible inside of a payment system. This idea would later develop into a cornerstone of modern blockchain conversation - the idea of micro-transactions. Super small payments to help fuel economic progress that could allow for something like a decentralized video sharing site maybe where you could send someone a fraction of a penny if you like their how-to video on spotting toucans. 
 
@@ -34,6 +34,12 @@ Another weakness, and this relates to the fact that transactions are potentially
 Bitcoin is based on cryptographic proof instead of trust. By assembling blocks in a chain and connecting them all with the hash of the block that came before them, Bitcoin creates a web that is computationally infeasible to reverse. To reverse any transaction, a malicious actor would have to rebuild the blockchain faster than all of the honest nodes in the system combined. There is some economic protection against this type of behaviour because any entity or group of entities with more than 51% of all network mining power would have a large stake in the system and any major breach would cause prices to plummet.  
 
 ##### Ethereum  
+
+- Ethereum does not use the UTXO model like Bitcoin, it uses the account/balance model that is supposed to be better for smart contracts
+- account balance model can provide incremental updates to states while the UTXO model can only provide full outputs
+- "This makes a significant savings of transaction size for applications like non-fungible
+tokens (e.g., Ethereum’s ERC-721 token), in which the
+state is a set of unique identifiers."
   
 ###### White paper  
 
@@ -59,6 +65,43 @@ Mining
 - SHA256 of every block as a 256 bit number must be less than a dynamically adjusted target ex. 2^190 when this paper was written
 - SHA256 is designed to pseudorandom and the only way to find a hash that meets the above criteria is through trial and error
 - To do this the nonce is incremented and then the entire block is hashed again.
+- At target of 2192 this means an average of 264 tries. Target is recalibrated every 2016 blocks so that a new block is produced every 10 minutes.
+- Attacks will focus on the one part of the system not protected by cryptography - the order of transactions
+- Vitalik outlines this attack: 
+    1. Send 100 BTC to merchant 
+    2. wait for product
+    3. Produce another transacation sending the 100 BTC to himself
+    4. Convince network his transaction came first
+- To make this work attacker would have to redo the blockchain form the point at which the merchant accepted the 100 BTC and sent the product - the attacker would have to rebuild the chain beyond where it had advanced to needing more than 51% of all mining power
+
+Merkle Trees  
+- important to Bitcoin and other blockchain protocols
+- scalability - each block is stored in a multi-level data structure
+- the hash of a block is only a hash of the block header
+- block header is roughly 200 bytes and contains the timestamp, nonce, previous block hash and the root hash of a data structure which is a merkle tree storing all the transactions in any block
+- A merkle tree is a type of binary tree
+- leaf nodes contain the underlying data
+- intermediate nodes where each node is the hash of it's two childern
+- finally a single root node also the hash of its two children which is called the Merkle root
+- the merkle tree allows data in a block to be queried efficiently. a node needs only the header of a block and the small part of the tree relevant to them to check their data to know it is correct
+- hashes propogate up, a fake transaction in a leaf node will cause the root hash to be invalid.
+- a full node on the network takes up about 15 GB. of disk space as of April 2014 growing by over 1GB per month. 
+- SPV or simplified payment verification is a system that allows for light nodes to exist
+- light nodes only need to download block headers, verify the Proof-of-work on the block headers and then download branches of the merkle tree that are relevant
+- this is used to determine whether relevant transactions have occurred
+
+Alternative Applications
+- Nick Szabo 2005 concept of "secure property titles with owner authority" describing a system that could be someday implemented with "new advances in replicated database technology" - these advances did not exist yet - never implemented
+- After 2009 with Bitcoin, new ideas emerged:
+    1. Namecoin: 2010 - decentralized name registration database\
+    - in decentralized protocols like Bitcoin or Tor there is a need to identify accounts beyond the use of a public key hash
+    - uses first to file which works with consensus on Bitcoin
+    2. Colored coins: people can creat their own tokens on top of Bitcoin
+    - a person can create a new currency by assigning a color to a specific UTXO. The protocol defines the color of other UTXO to be the same as the color of the inputs that the transaction creating them spent - through recursion. 
+    - A User can have a wallet with UTXO of only a specific color
+    3. Metacoins: protocol on top of Bitcoin. Bitcoin transactions store Metacoin transactions with a a different state transaction function - Vitalik calls this APPLY
+    - mining, networking handled by Bitcoin
+    - ?? not sure how this works
 
 ###### Yellow paper
 
