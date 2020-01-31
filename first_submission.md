@@ -109,11 +109,18 @@ Alternative Applications
 
 ##### References  
 
-[1] Nakamoto, Satoshi. "Bitcoin: A peer-to-peer electronic cash system." (2008).
-[2] Back, Adam. "Hashcash-a denial of service counter-measure." (2002).
-[3] Gilad, Yossi, Rotem Hemo, Silvio Micali, Georgios Vlachos, and Nickolai Zeldovich. "Algorand: Scaling byzantine agreements for cryptocurrencies." Proceedings of the 26th Symposium on Operating Systems Principles. 2017.
-[4] Wood, Gavin. "Ethereum: A secure decentralised generalised transaction ledger." Ethereum project yellow paper 151.2014 (2014): 1-32.
-[5] Buterin, Vitalik. "A next-generation smart contract and decentralized application platform." white paper 3.37 (2013).
-[6] Sompolinsky, Yonatan, and Aviv Zohar. "Secure high-rate transaction processing in bitcoin." International Conference on Financial Cryptography and Data Security. Springer, Berlin, Heidelberg, 2015.
-[7] Back, Adam. "Hashcash." (1997).
-[8] Wei Dai. "b-money." Published at http://www.eskimo.com/ ̃weidai/bmoney.txt, Nov 1998.
+[1] Nakamoto, Satoshi. "Bitcoin: A peer-to-peer electronic cash system." (2008).  
+
+[2] Back, Adam. "Hashcash-a denial of service counter-measure." (2002).  
+
+[3] Gilad, Yossi, Rotem Hemo, Silvio Micali, Georgios Vlachos, and Nickolai Zeldovich. "Algorand: Scaling byzantine agreements for cryptocurrencies." Proceedings of the 26th Symposium on Operating Systems Principles. 2017.  
+
+[4] Wood, Gavin. "Ethereum: A secure decentralised generalised transaction ledger." Ethereum project yellow paper 151.2014 (2014): 1-32.  
+
+[5] Buterin, Vitalik. "A next-generation smart contract and decentralized application platform." white paper 3.37 (2013).  
+
+[6] Sompolinsky, Yonatan, and Aviv Zohar. "Secure high-rate transaction processing in bitcoin." International Conference on Financial Cryptography and Data Security. Springer, Berlin, Heidelberg, 2015.  
+
+[7] Back, Adam. "Hashcash." (1997).  
+
+[8] Wei Dai. "b-money." Published at http://www.eskimo.com/ ̃weidai/bmoney.txt, Nov 1998.    
