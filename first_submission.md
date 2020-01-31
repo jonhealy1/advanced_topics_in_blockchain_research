@@ -52,7 +52,8 @@ Introduction/ History
 - research: e-cash proposals of the 1980s and 1990s
 - research: Hal Finney 2005 introduces a concept of 'reusable proofs of work'. Uses hashcash and b-money but fails because it relies on trusted computing on the backend
 - consensus protocols, like byzantine fault tolerant assumed a network of known participants but in an anomynous setting a network is vulnerable to sybil attacks - a node can create many other nodes to secure a majority share
-- Satoshi's innovation is the idea of creating a decentralized consensus protocol where nodes combine transacations into connected blocks using proof-of-work as a means of participating in the system  
+- Satoshi's innovation is the idea of creating a decentralized consensus protocol where nodes combine transacations into connected blocks using proof-of-work as a means of participating in the system.  
+  
 State Transition System    
 
 - Bitcoin can be thought of as a 'state transition system'  
