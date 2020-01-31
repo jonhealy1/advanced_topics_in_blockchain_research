@@ -8,7 +8,9 @@ For better or worse, the introduction of Bitcoin helped change the way that many
 
 The network at large must come to a consensus regarding the total state of all value in the system. To reach consensus the network must choose a node to validate a round of transactions and assemble them into a block. In Bitcoin this is done through something called 'proof-of-work'. Nodes dedicated to becoming validators compete by assembling transactions into a block and making sure that the block that they propose is valid. To finalize this process they use computing power to hash their proposed block with a value containing a specified number of leading zeroes. If a node is successful - if other nodes in the system agree that the new block belongs on the larger blockchain - the succesful node is awarded a specified amount of currency along with any transaction costs that Users have added to their transactions for faster processing consideration. (The value created by validating blocks is also the only source of inflation in the system.)  
 
-The publication of the Bitcoin white paper ushered in a new era for digital finance but many of the ideas that are introduced in this paper find their genesis in other work. Most people realize that Bitcoin would not be successful without previous advances in cryptography. There are other ideas as well, introduced to some by Bitcoin, that were developed elsewhere. Concerning consensus, the Hashcash paper written by Adam Back [2] introduced the concept of proof-of-work as a means of creating security and helping to stop spam by requiring senders of email to compute cryptographic puzzles. This report will be looking at consensus as it relates to blockchains existing on public peer-to-peer networks with a focus on the proof-of-work consensus model. To achieve this, we will be looking at the Hashcash paper and examining proof-of-work in it's original form. From there, we will continue to examine Bitcoin before jumping further into the future beyond Bitcoin to look at what is now the world's second most valuable blockcahin network, Ethereum. Ethereum introduces some important modifications to the proof-of-work model introduced by Bitcoin. 
+The publication of the Bitcoin white paper ushered in a new era for digital finance but many of the ideas that are introduced in this paper find their genesis in other work. Most people realize that Bitcoin would not be successful without previous advances in cryptography. There are other ideas as well, introduced to some by Bitcoin, that were developed elsewhere. Concerning consensus, the Hashcash paper written by Adam Back [2] introduced the concept of proof-of-work as a means of creating security and helping to stop spam by requiring senders of email to compute cryptographic puzzles. 
+
+This report will be looking at consensus as it relates to blockchains existing on public peer-to-peer networks with a focus on the proof-of-work consensus model. To achieve this, we will be looking at the Hashcash paper and examining proof-of-work in it's original form. From there, we will continue to examine Bitcoin before jumping further into the future beyond Bitcoin to look at what is now the world's second most valuable blockcahin network, Ethereum. Ethereum introduces some important modifications to the proof-of-work model introduced by Bitcoin. 
 
 The two papers that will be looked at in this report concerning Ethereum are the Ethereum white paper published in 2013 [5]and the Ethereum yellow paper published later in 2014 [4] as a more formal explanation of how the Ethereum network works. Ethereum is maybe most well known for implementing a Turing complete programming language on top of a Bitcoin-like blockchain. Another important difference between Bitcoin and Ethereum is in the way block rewards are allocated with Ethereum using the GHOST protocol [6] and rewarding valid blocks that may not get implemented in the blockchain. These discarded but valid blocks are called uncle blocks and including them is thought to add security.
 
@@ -42,72 +44,6 @@ tokens (e.g., Ethereum’s ERC-721 token), in which the
 state is a set of unique identifiers."
   
 ###### White paper  
-
-Introduction/ History  
-
-- Ethereum was first introduced to the world via Vitalik Buterin in the Ethereum white paper [5]  
-- Ethereum intends, "to provide a blockchain with a built-in fully fledged Turing-complete programming language that can be used to create 'contracts' that can be used to encode arbitrary state transition functions."
-- Bitcoin allowed for some programming funtionality which led to various proposals like colored coins and namecoin for domain names (explain more)
-- Vitalik champions the DAO or digital autonomous organization. The assets and bylaws of an entire organization are all written in smart contracts and stored on a blockchain
-- research: e-cash proposals of the 1980s and 1990s
-- research: Hal Finney 2005 introduces a concept of 'reusable proofs of work'. Uses hashcash and b-money but fails because it relies on trusted computing on the backend
-- consensus protocols, like byzantine fault tolerant assumed a network of known participants but in an anomynous setting a network is vulnerable to sybil attacks - a node can create many other nodes to secure a majority share
-- Satoshi's innovation is the idea of creating a decentralized consensus protocol where nodes combine transacations into connected blocks using proof-of-work as a means of participating in the system.  
-  
-State Transition System    
-
-- Bitcoin can be thought of as a 'state transition system'  
-- A state consists of the ownership status of all bitcoins  
-- The transition function takes a state and a transaction and outputs a new state
-- Coins in Bitcoin are technically 'unspent transaction outputs' or UTXO
-- each UTXO has a denomination and an owner defined by a 20 byte address which is the public key. 
-- A transaction has one or more inputs - each input contains a, "reference to an existing UTXO and a cryptographic signature produced by the private key associated with the owner's address, and one or more outputs, with each output containing a new UTXO to be added to the state."
-
-Mining   
-
-- each transaction in the block must provide a state transition that is valid
-- SHA256 of every block as a 256 bit number must be less than a dynamically adjusted target ex. 2^190 when this paper was written
-- SHA256 is designed to pseudorandom and the only way to find a hash that meets the above criteria is through trial and error
-- To do this the nonce is incremented and then the entire block is hashed again.
-- At target of 2192 this means an average of 264 tries. Target is recalibrated every 2016 blocks so that a new block is produced every 10 minutes.
-- Attacks will focus on the one part of the system not protected by cryptography - the order of transactions
-- Vitalik outlines this attack: 
-    1. Send 100 BTC to merchant 
-    2. wait for product
-    3. Produce another transacation sending the 100 BTC to himself
-    4. Convince network his transaction came first
-- To make this work attacker would have to redo the blockchain form the point at which the merchant accepted the 100 BTC and sent the product - the attacker would have to rebuild the chain beyond where it had advanced to needing more than 51% of all mining power
-
-Merkle Trees  
-
-- important to Bitcoin and other blockchain protocols
-- scalability - each block is stored in a multi-level data structure
-- the hash of a block is only a hash of the block header
-- block header is roughly 200 bytes and contains the timestamp, nonce, previous block hash and the root hash of a data structure which is a merkle tree storing all the transactions in any block
-- A merkle tree is a type of binary tree
-- leaf nodes contain the underlying data
-- intermediate nodes where each node is the hash of it's two childern
-- finally a single root node also the hash of its two children which is called the Merkle root
-- the merkle tree allows data in a block to be queried efficiently. a node needs only the header of a block and the small part of the tree relevant to them to check their data to know it is correct
-- hashes propogate up, a fake transaction in a leaf node will cause the root hash to be invalid.
-- a full node on the network takes up about 15 GB. of disk space as of April 2014 growing by over 1GB per month. 
-- SPV or simplified payment verification is a system that allows for light nodes to exist
-- light nodes only need to download block headers, verify the Proof-of-work on the block headers and then download branches of the merkle tree that are relevant
-- this is used to determine whether relevant transactions have occurred
-
-Alternative Applications  
-
-- Nick Szabo 2005 concept of "secure property titles with owner authority" describing a system that could be someday implemented with "new advances in replicated database technology" - these advances did not exist yet - never implemented
-- After 2009 with Bitcoin, new ideas emerged:
-    1. Namecoin: 2010 - decentralized name registration database\
-    - in decentralized protocols like Bitcoin or Tor there is a need to identify accounts beyond the use of a public key hash
-    - uses first to file which works with consensus on Bitcoin
-    2. Colored coins: people can creat their own tokens on top of Bitcoin
-    - a person can create a new currency by assigning a color to a specific UTXO. The protocol defines the color of other UTXO to be the same as the color of the inputs that the transaction creating them spent - through recursion. 
-    - A User can have a wallet with UTXO of only a specific color
-    3. Metacoins: protocol on top of Bitcoin. Bitcoin transactions store Metacoin transactions with a a different state transaction function - Vitalik calls this APPLY
-    - mining, networking handled by Bitcoin
-    - ?? not sure how this works
 
 ###### Yellow paper
 
