@@ -37,11 +37,23 @@ Bitcoin is based on cryptographic proof instead of trust. By assembling blocks i
 
 ##### Ethereum  
 
-- Ethereum does not use the UTXO model like Bitcoin, it uses the account/balance model that is supposed to be better for smart contracts
-- account balance model can provide incremental updates to states while the UTXO model can only provide full outputs
-- "This makes a significant savings of transaction size for applications like non-fungible
-tokens (e.g., Ethereum’s ERC-721 token), in which the
-state is a set of unique identifiers."
+Ethereum is a public, proof-of-work blockchain primarily designed to expand on the Bitcoin model by adding a Turing complete programming language. Ethereum was proposed by Vitalik Buterin in late 2013 [3] before going live in 2015. A yellow paper was released in 2014 [4] in order to present a more formal explanation of how the protocol works. There are a number of ways in which Ethereum differed from Bitcoin and other blockchains at the time and the most notable is the Ethereum Virtual Machine (EVM) which allowed for applications to be deployed on the Ethereum blockchain.  
+
+Buterin had wanted to use a Bitcoin-like blockchain for more than just currency and in his mind there were a number of reasons why Bitcoin was ill-suited for the deployment of so-called smart contracts and decentralized applications. Ethereum was intended to, "provide a blockchain with a built-in, fully fledged Turing-complete programming language that can be used to create 'contracts' that can be used to encode arbitrary state transition functions" [3]. Bitcoin allowed for some programming functionality and various schemes had been proposed and even employed using it. However, the scripting functionality that could be employed in Bitcoin using unspent transactions or UTXO only allowed for a weak version of smart contracts. 
+
+In Bitcoin, a UTXO can owned by not just a public key but also by a more, "complicated script expressed in a simple stack based programming language" [3]. Scripting offered some programming functionality. A simple example is with public key ownership which is employed via a script. An example of a more complicated script would be with what is called 'multisig' where a script is created that depends on signatures from say, 2 out of 3 public keys. Script in Bitcoin also verifies an elliptic curve signature against a transaction and an address that owns a UTXO returning 1 if it is successful. 
+
+According to [3], Scripting has serious limitations. The first and most obvious is that it is not Turing-complete. This basically means that it can not employ loops and the reason for this is to avoid infinite loops during transaction processing. The same fuctionality can be programmed in script but the resulting code will become too long.
+
+The second limitation of scripting relates to what is called 'value-blindness'. This refers to the fact that the UTXO model can not provide fine-grained control over amounts being able to only produce full amounts. Ethereum chose to use what is called the account/ balance model. This means that Ethereum can provide incremental updates to states and this provides much better functionality for allowing smart contracts.
+
+The third and final limitation provided by Buterin relates to what he refers to as the lack of state [3] in Bitcoin with the UTXO model. UTXO is either spent or unspent therefore it can not be used for multi-stage contracts or scripts which keep any other internal state. This means that UTXO could only be used to build simple contracts that could only be used once. Ethereum contracts on the other hand were to be stateful and Ethereum was specifically designed to allow for the kind of functionality that could allow for creating things like the DAO (Digital Autonomous Organization), which was to be an organization whose rules existed soley as a series of inter-related smart contracts.  
+
+Ethereum sought to improve scripting, allow for altcoins (removing the need for new coins to build there own blockchains, they could just exist on the Ethereum blockchain) and provide a home for on-chain meta protocols which were developed to exist on the Bitcoin blockchain but could not do that well because of Bitcoin's design. In the words of Buterin, Ethereum would, "allow developers to create arbitrary consensus-based applications that have the scalability, standardization, feature-completeness, ease of development and interoperability offered by these three paradigms all at the same time" [3].
+
+
+
+
   
 ###### White paper  
 
