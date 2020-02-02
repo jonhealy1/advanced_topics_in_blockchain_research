@@ -219,9 +219,18 @@ Scalability
 - like Bitcoin every trans needs to processed by every node in the network 
 - btc blockchain is about 20gb growing by 1mb per hour
 - eth will be worse because there will be applications build on top of the protocol
-- it will be helped because eth store state not fill history
+- it will be helped because eth store state not full history
 - risks: if blockcahin gets too big only a few large businesses would run full nodes
-- 
+- entities could cheat - light nodes would not know immediately
+- eth will use 2 strategies to cope:
+1. in eth every miner runs fill node
+2. include intermediate state tree root in blockchain after processing each transaction. as long as one honest verifying node exists centralization is mitigated via verification protocol
+    - if a miner publishes invalid block it is either poorly formatted or the state S[n] is incorrect ...... ( read in paper )
+
+- another attack: malicious miners publish incomplete blocks so full info does not exist to determine whether or not blocks are valid. 
+    - solution: challenge-response protocol - verification nodes issue challenges in the form of target transaction indices - after receiving a node a light node treats the block as untrusted until another node provides a subset of Patrucua nodes as a proof of validity
+
+- "the contract mechanism described above allows anyone to build what is essentially a command line application run on a virtual machine that is executed by consensus across the entire network"
 
 
 
