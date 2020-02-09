@@ -54,8 +54,15 @@ In order to prevent infinite loops, Ethereum relies on two concepts. These conce
 
 Ethereum allows for the existence of two different types of accounts. The first type is called an externally owned account. An externally owned account has no code but can send messages by signing a transaction. The other type of account, a contract account, activates everytime it receives a message: "This allows it to read an write to internal storage and send other messages or create contracts in turn" [3].  
 
-EVM ---> 
+###### GHOST protocol  
 
+GHOST, which stands for 'greediest heaviest observed subtree', was introduced in 2013 and is given a formal explanation in [6]. The GHOST protocol is used in Ethereum to improve security in the proof-of-work consensus model introduced by Bitcoin. Instead of using the 'longest-chain rule', GHOST implements something called the, 'heaviest subtree rule' which is a variation. Ethereum implements their own version of GHOST and the focuse here will be on the Ethereum implementation.  
+
+Sompolinsky et al noticed that blockchains with faster confirmation times create more stale blocks and this fact impacts security. In any peer-to-peer blockchain implementation it takes time for imformation to spread out amongst the network. One miner can mine a valid block before another miner can but there is no guarantee that the first block created will ultimately be the one accepted. In this way, the miner whose block does not get accepted is not helping to contribute to network security. The GHOST protocol includes these so-called stale blocks - which are called Uncle blocks in Ethereum - when calculating which version of the blockchain is valid and should be added to in the future.  
+
+The creators of the GHOST protocol pointed out that the longest-chain rule utilized in Bitcoin and subsequent blockchain versions created issues relating to miner centralization. The example used in [5] talks about two mining pools, A and B. If pool A has 30% of all hashpower in the network and pool B has 10%, A will theoretically have a 70% chance of producing a stale block while B would have a 90% chance. This problem exists especially in blockchain networks with fast block confirmation times. Pool A will more likely build future blocks off a chain containing blocks created by it's own pool rather than implement B's blocks. If block confirmation times are slowed done, it is more likely that smaller entities will have any blocks that they created fully propogated throughout the network. Regarding this issue, Buterin states [5] that, "blockchains which produce blocks quickly are likely to lead to one mining pool having a large enough percentage of the network hashpower to have de facto control over the mining process." According to [9], Bitcoin processes approximately 7 transactions per second while Ethereum does 20, which is significantly faster. 
+
+Going beyond what is suggested in GHOST, [5] Buterin adds uncle blocks to the main chain and allows them to receive a block award for their effort. Uncle blocks receive 93.75% of the base reward awarded to miners for creating a valid block and the remaining 6.25% is added to so-called nephew blocks for including the uncle block. In Ethereum, only uncle blocks down to 5 levels deep can be considered. It was decided that an unlimited version of GHOST would be too complicated and would potentially remove any incentive for a miner to mine on the main chain. According to [5], five-level GHOST with incentives is over 95% efficient even with a 15s. block time. It is also claimed that experiments show that miners with 25% hashpower only show centralization gains of less than 3% which is impressive. 
 
 
   
@@ -82,3 +89,5 @@ EVM --->
 [7] Back, Adam. "Hashcash." (1997).  
 
 [8] Wei Dai. "b-money." Published at http://www.eskimo.com/ ̃weidai/bmoney.txt, Nov 1998.    
+
+[9] https://medium.com/futurepia/fastest-transaction-speed-mainnet-2eb3799bbed2
