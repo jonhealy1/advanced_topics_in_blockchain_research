@@ -34,7 +34,7 @@ Another weakness, and this relates to the fact that transactions are potentially
 
 Bitcoin is based on cryptographic proof instead of trust. By assembling blocks in a chain and connecting them all with the hash of the block that came before them, Bitcoin creates a web that is computationally infeasible to reverse. To reverse any transaction, a malicious actor would have to rebuild the blockchain faster than all of the honest nodes in the system combined. There is some economic protection against this type of behaviour because any entity or group of entities with more than 51% of all network mining power would have a large stake in the system and any major breach would cause prices to plummet.
 
-##### Ethereum  
+##### Ethereum White Paper  
 
 Ethereum is a public, proof-of-work blockchain primarily designed to expand on the Bitcoin model by adding a Turing complete programming language. Ethereum was proposed by Vitalik Buterin in late 2013 [3] before going live in 2015. A yellow paper was released in 2014 [4] in order to present a more formal explanation of how the protocol works. There are a number of ways in which Ethereum differed from Bitcoin and other blockchains at the time and the most notable is the Ethereum Virtual Machine (EVM) which allowed for applications to be deployed on the Ethereum blockchain.  
 
@@ -64,11 +64,17 @@ The creators of the GHOST protocol pointed out that the longest-chain rule utili
 
 Going beyond what is suggested in GHOST, [5] Buterin adds uncle blocks to the main chain and allows them to receive a block award for their effort. Uncle blocks receive 93.75% of the base reward awarded to miners for creating a valid block and the remaining 6.25% is added to so-called nephew blocks for including the uncle block. In Ethereum, only uncle blocks down to 5 levels deep can be considered. It was decided that an unlimited version of GHOST would be too complicated and would potentially remove any incentive for a miner to mine on the main chain. According to [5], five-level GHOST with incentives is over 95% efficient even with a 15s. block time. It is also claimed that experiments show that miners with 25% hashpower only show centralization gains of less than 3% which is impressive. 
 
+##### Ethereum Yellow Paper  
 
-  
-###### White paper  
+The Ethereum Yellow Paper [4] was written by Dr. Gavin Wood in 2014. Ethereum was proposed in 2013 [5]. The yellow paper is an attempt to make Ethereum look more scholarly and formalizes most of the concepts introduced in [5]. Although there are not any real differences between Ethereum circa 2013 and Ethereum circa 2014, the yellow paper is an important contribution to the world of blockchain literature.  
 
-###### Yellow paper
+Wood [5] provides some interesting insight as to the future directions of Ethereum. For one, he realizes that Ethereum should at some point deal with the ever-expanding size of the blockchain. This is not a new idea at the time, Satoshi even talks about it in [1], but Wood has some interesting thoughts. He talks about each node - block - in the network having an age and discarding nodes that are both old and not checkpoints. By implementing checkpoints, a limit could be placed, "on the amount of computation needed in order to retrieve any state throughout the blockchain." 
+
+Another idea presented here, relating to the first and the issue of blockchain size is that of blockchain consolidation. Full, mining nodes need to download the whole blockchain. Wood feels that a compressed archive at given points in time could be maintained, "effectively recasting the genesis block." This is an interesting idea but it may run into problems via the use of contracts calling other older contracts. 
+
+Blockchain compression is the last idea presented in [5] related to the two previous discussed above. Here the idea is that nodes that haven't sent or received a transaction in some time could be thrown out. This is maybe an idea that is destined to never go anywhere. The blockchain is a trusted record of provenance and most people will not agree to having anything thrown out. Consolidating the blockchain and securely storing earlier states based on previous checkpoints seems to be much better idea. 
+
+Besides for work relating to the size of the Ethereum blockchain, the other avenue for future direction presented by Wood [5] relates to scalability. He notes that, "with a generalized state transition function, it becomes difficult to partition and parallelise transactions to apply the divide-and-conquer strategy." One of his ideas involves creating a hierarchcical structure by, "consolidating smaller lighter-weight chains into the main block." Alternately this could be achieved by, "building the main block through the incremental combination and adhesion (through proof-of-work) of smaller transaction sets." Finally, "Parallelism could also come from a prioritised set of parallel blockchains, consolidated each block and with duplicate or invalid transactions thrown out accordingly."
 
 ##### Algorand  
 
