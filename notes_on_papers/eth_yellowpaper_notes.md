@@ -3,6 +3,10 @@
 - Ethereum proposed by Buterin in nov. 2013
 - provides some history of POW that I was unaware of *
 - 
+
+- 
+
+
 12. Implementing Contracts
 There are several patterns of contracts engineering that allow particular useful behaviours; two of these that I will briefly discuss are data feeds and random numbers.
 12.1. Data Feeds. A data feed contract is one which pro- vides a single service: it gives access to information from the external world within Ethereum. The accuracy and timeliness of this information is not guaranteed and it is the task of a secondary contract author—the contract that utilises the data feed—to determine how much trust can be placed in any single data feed.
