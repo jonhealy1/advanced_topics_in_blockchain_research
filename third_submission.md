@@ -25,6 +25,9 @@ Blockchain size management is another idea that has been floating around the blo
 
 The last idea introduced in [4] is yet another one that has garnered a fair amount of attention and for good reason. Establishing a system for blockchain interoperability could have an enormous impact. In a supply chain setting, members of one network would naturally need to be able to send and receive information to other networks. Besides for the technical issues involved with passing secure transactions between blockchain networks there is the need for data consistency to allow for this to happen in the first place. Even if two supply chains utilize the same blockchain implementation - like Hyperledger Fabric - there is still a need for cross industry standards to be established. Another issue in this scenario, that is presented in [4], is that of authenticating membership credentials. Managing membership is one network may be difficult but how about across networks? Who authenticates membership? A federated model would probably work best here because it could be based on a quorum or circle of trust and allow for membership to be approved without central agency.  
 
+3. Blockchain for HCLS (Health Care and Life Sciences)
+
+In [3] the authors focus on tasks related to healthcare data exchange, payments, clinical trials and the pharmaceutical supply chain. Curbera et al. believe that blockchain has the potential to disrupt current industry practices in the area of health care and life sciences (HCLS). They state that blockchain is the, "ideal technology to support major requirements for emerging healthcare and life sciences (HCLS) trends."
 
 6. References  
 
