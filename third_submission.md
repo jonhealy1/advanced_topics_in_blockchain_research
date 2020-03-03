@@ -39,6 +39,20 @@ A system is proposed in [3] built on top of IBM's Hyperledger Fabric solution. A
 
 Concerning security, Curbera et al state that, "Hyperledger's native data encryption scheme is not sufficeint since it does not allow defining fine-grain visibility rules per data element and per user" [3]. HIPAA regulations in the United States and similar schemes in other jurisdictions have specific data privacy requirements. The authors [3] seek to address this by adding an extra layer of data encryption. Every piece of data is encrypted with a data key for extra protection. They also use private channels which are implemented in Hyperledger Fabric to provide secure data exchange. 
 
+With respect to scalability the authors of [3] point out that a blockchain by design stores a copy of all data on every node in the network which naturally inhibits scalability. There solution solves this problem by splitting data into chunks and using encryption. Only metadata related to the data itself along with a hash of the data for integrity is stored on-chain. They claim that by doing this they solve the problem of scalability. There are maybe a couple of concerns here. One is that storing data off-chain is not a new solution. What they propose has been implemented before. The second concern would be that, as other blockchains have shown, eventually a blockchain will become cumbersome even without storing gigabytes of exogenous data directly on the blockchain. The Bitcoin blockchain for instance is 149 GB is size and doesn't directly store any datasets either. A secure, global system storing references to all health care data along with a full audit trail detailing all access could face similar bloat. 
+
+Speed in a blockchain setting relates to scalability. The authors of [3] believe that Hyperledger Fabric is basically fast enough on it's own and any speed concerns in their system could potentially be addressed by tweaking settings in Fabric such as those that relate to the number of endorsing peers needed to approve transactions. Curbera et al. note that the extra layer of encryption could add to latency but believe that this can be addressed by hardware encryption. 
+
+A concern here might be related to the fact that Hyperledger Fabric has never been implemented in a setting similar to the one proposed for HCLS data. They claim that the amount of health care data in the world is expanding rapidly but if this trend continues in the future the number of transactions involved with exchanging this data will increase as well. Whether Hyperledger Fabric can support this type of load is an unanswered question as it had not faced any similar real life scale yet. The security provided by Hyperledger Fabric may need to be revisited as well in this type of scenario. At some point it might be better to just host a public blockchain with stronger security guarantees like what is offered by proof-of-work blockchains based on the Bitcoin protocol. Further challenges identified by Curbera et al. relate to multi-blockchain environments, standardization of key blockchain services for HCLS data and providing buiding blocks to enable other industries to adopt their solution. 
+
+4. Blockchain Analytics and Artificial Intelligence  
+ 
+
+
+
+
+
+
 6. References  
 
 1.	Dillenberger, D. N., et al. "Blockchain analytics and artificial intelligence." IBM Journal of Research and Development 63.2/3 (2019): 5-1. (3 citations)
