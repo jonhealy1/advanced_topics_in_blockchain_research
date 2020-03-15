@@ -13,7 +13,7 @@ Another notable use case for blockchain technology that has received some attent
 
 A blockchain is essentially a provenance solution. It stores the history of all transactions in a network whether we are talking about currency with Bitcoin or recording when a diamond was mined in Namibia using something like Hyperledger Fabric. Blockchains depending on their use case can potentially contain enormous amounts of valuable data. Examining a blockchain may lead to things like identifying issues in supply chains related to noncompliance with respect to regulatory rules and obligations. Blockchain technology and analytics using machine learning can walk hand in hand because data put into a blockchain needs to be specificially formatted. Tools relating to analytics using artificial intelligence is covered in another paper [2] being reviewed here. 
 
-The last 
+The fourth and last paper covered in this review and titled, "Crypto anchors" [5] looks at an often overlooked aspect related to the concrete implementation of blockchains for many tasks. The movement of goods and products can be traced digitally and recorded in a blockchain for austerity and security but how do these items maintain authenticity? For an item to be reliably tracked it needs to have identification associated with it originating in the physical domain when it is first produced. One can trace the movement of their Rolex watch from Hong Kong to Vancouver but what guarantee does one have that it is a genuine Rolex watch in the first place. Even if you can see the watch originating from a genuine factory via reviewing the associated blockchain how can you be sure that it was not replaced with a fake at some point in the supply chain? By reviewing [5] some of the ideas and challenges associated with this idea will be considered. 
 
 2. Supply Chain Automation
 
@@ -57,6 +57,11 @@ To enable compliance analysis the authors [2] designed a Compliance Engine for a
 
 Another idea introduced by [2] relates to trusted AI. With AI processing becoming more distributed and with AI in general increasing in popularity, Dillenberger et al. believe that blockchain can help address associated trust-related concerns. The idea here is that a blockchain, because it is an immutable ledger, can help "to track a given AI process at different granularity levels, depending on the application at hand" [2]. Other blockchain mechanisms especially those in Hyperledger Fabric can help restrict access to data and data models. This allows for confidential sharing and tracing usage and ownership across complex provenance chains [2].
 
+5. Crypto Anchors
+
+
+
+
 
 
 
@@ -73,5 +78,6 @@ Another idea introduced by [2] relates to trusted AI. With AI processing becomin
 2.	Tateishi, T., et al. "Automatic smart contract generation using controlled natural language and template." IBM Journal of Research and Development 63.2/3 (2019): 6-1. (1 citation)
 3.	Curbera, F., et al. "Blockchain: An enabler for healthcare and life sciences transformation." IBM Journal of Research and Development 63.2/3 (2019): 8-1. (1 citation)
 4.  Narayanaswami, C., et al. "Blockchain anchored supply chain automation." IBM Journal of Research and Development 63.2/3 (2019): 7-1. 
+5.  Balagurusamy, V. S. K., et al. "Crypto anchors." IBM Journal of Research and Development 63.2/3 (2019): 4-1.
  
 
