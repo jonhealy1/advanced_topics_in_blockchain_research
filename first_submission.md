@@ -84,7 +84,7 @@ Besides for work relating to the size of the Ethereum blockchain, the other aven
 
 For some, the age of proof-of-work consensus is disappearing. Proof-of-work has proven to be slow, energy expensive and has failed at allowing for micro-transactions. The idea behind micro-transactions is that small exchanges of currency could be made online for fractions of a penny. Transaction costs have made this impossible. For small transactions - like say buying a cup of coffee to go - crypto-currency has proven to be unwieldy because of the time someone may need to wait for a transaction to be finalized on the blockchain. 
 
-Other solutions, mosly based on a concept called proof-of-stake where validators are chosen with 
+Other solutions, mostly based on a concept called proof-of-stake where validators are chosen with the odds of being chosen determined by the number of tokens that a validator has in the system, are still largely in development. People question whether public blockchains build without proof-of-stake will have the same security. 
 
 
 ##### References  
