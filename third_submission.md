@@ -47,7 +47,9 @@ A concern here might be related to the fact that Hyperledger Fabric has never be
 
 4. Blockchain Analytics and Artificial Intelligence  
 
-With a blockchain presently proposed for almost every facet of modern life, a new opportunity is introduced. Analyzing vast amounts of new data, already specifically formatted to exist in targeted use-case environments is now a potentially, exciting area of research. In the paper 'Blockchain analytics and artificial intelligence' [2], some of the uses for data analytics relating to blockchain technology are identified which include provenance history, predictive planning, fraud identification, and regulatory compliance. A vital point made by Dillenberger et al. that cannot be overlooked, is that analytics, "need to follow the same access control and security model as the underlying blockchain platform" [2]. With the proliferation of permissioned or private and semi-private blockchain solutions, privacy and security becomes a real concern versus analyzing data on public, permission-less blockchain solutions like Bitcoin where the same concerns do not exist. The authors of [2] have presented a solution built on top of Hyperledger Fabric, which is the same framework used by the other papers in this review related to healthcare and supply chain management. One of the properties that they have tried to incorporate is what they call 'solution-independent' meaning that there framework should work for any system built on top of Hyperledger Fabric. 
+With a blockchain presently proposed for almost every facet of modern life, a new opportunity is introduced. Analyzing vast amounts of new data, already specifically formatted to exist in targeted use-case environments is now a potentially, exciting area of research. In the paper 'Blockchain analytics and artificial intelligence' [2], some of the uses for data analytics relating to blockchain technology are identified which include provenance history, predictive planning, fraud identification, and regulatory compliance. A vital point made by Dillenberger et al. that cannot be overlooked, is that analytics, "need to follow the same access control and security model as the underlying blockchain platform" [2]. 
+
+With the proliferation of permissioned or private and semi-private blockchain solutions, privacy and security becomes a real concern versus analyzing data on public, permission-less blockchain solutions like Bitcoin where the same concerns do not exist. The authors of [2] have presented a solution built on top of Hyperledger Fabric, which is the same framework used by the other papers in this review, related to healthcare and supply chain management. One of the properties that they have tried to incorporate is what they call 'solution-independent' meaning that their framework should ideally work for any system built on top of Hyperledger Fabric. 
 
 Hyperledger Fabric has not been designed with analytics in mind, the authors of [2] propose performing the necessary queries on a secondary database that is used with Fabric to store the latest snapshots of data. Because Fabric is modular, both LevelDB and CouchDB are presently supported. The authors chose CouchDB because it supports JSON retrieval and has richer query capabilities than LevelDB. 
 
@@ -61,20 +63,23 @@ Another idea introduced by [2] relates to trusted AI. With AI processing becomin
 
 The authors of the paper, 'Crypto anchors' [5] argue that to ensure complete supply chain security, any solution must be, "enhanced with methods to "anchor" physical objects into information technology, internet-of-things and blockchain systems." Sucessfully doing this would ensure that products can be accurately traced, ensuring authenticity and reliabale provenance. In many industries there is the real possibility that actual harm could be caused when fake products enter the supply chain. Industries like electronics, pharmaceuticals and automotive are examples. 
 
-Usually physical objects maintain a digital record through the use of a unique identifier (UID), which is printed or attached to an object. Problems with this arise because many UIDs can be copied or transferred to a fake object. The idea behind a 'crypto anchor' is that properties of a physical object will be used in coordination with a UID to provide real authenticity. Some of the methods considered in [5] in order to achieve this include using physical fingerprints like with surface structure or other embedded security features like with money. By combining crypto anchors with blockchain technology, end to end authenticity can be provided for various blockchain use
+Usually physical objects maintain a digital record through the use of a unique identifier (UID), which is printed or attached to an object. Problems with this arise because many UIDs can be copied or transferred to a fake object. The idea behind a 'crypto anchor' is that properties of a physical object will be used in coordination with a UID to provide real authenticity. Some of the methods considered in [5] in order to achieve this include using physical fingerprints like with surface structure or other embedded security features like with money. By combining crypto anchors with blockchain technology, end to end authenticity can be provided for various blockchain use-case scenarios. 
+
+Challenges identified in [5] include managing crypto anchors and their associated security keys. In a factory setting, millions of items would all potentially need to be managed and accounted for. This directly relates to another question posed here [5]: "On the blockchain side, how does one scale the network for billions of crypto anchors and IoT devices?" Related to future work, the authors identify specific approaches to providing crypto anchors for physical objects that require devleopment in the future.     
+
+
+6. Conclusion
+
+The benefits of blockchain technology are now being recognized in many fields. One of the most widely talked about use-cases for blockchains relates to supply chain management. Hyperledger Fabric, built by IBM is a blockchain solution that was engineered with this use-case in mind. Because it is a permissioned blockchain environment it is perfect for a supply chain scenario where membership and access would need to be monitored and controlled. Another popular idea for blockchain implementation relates to securing health care data. Security and privacy concerns are paramount here. Healthcare providers have the need to access an individual's health record but this access should be limited. By using a blockchain we can potentially allow for a trustless environment where health records will not be leaked by bad intent or carelessness. 
+
+With more and more data, much of it cross-organizational, being stored on blockchains there is a need to analyze this data. A solution built for Hyperledger Fabric could potentially be re-implemented for any type of use-case built on Fabric as well. By utilizing analytics combined with artificial intelligence, many useful insights can potentially be idenitfied. In a supply chain scenario, bottlenecks or security issues 
 
 
 
 
 
 
-
-
-
-
-
-
-6. References  
+7. References  
 
 1.	Dillenberger, D. N., et al. "Blockchain analytics and artificial intelligence." IBM Journal of Research and Development 63.2/3 (2019): 5-1. (3 citations)
 2.	Tateishi, T., et al. "Automatic smart contract generation using controlled natural language and template." IBM Journal of Research and Development 63.2/3 (2019): 6-1. (1 citation)
