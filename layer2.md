@@ -132,7 +132,25 @@
 -   to strengthen operator's integrity uses provably consistentmode of operation through the use of zkSNARKS. 
 -   underlying smart contract validates layer 2 state transitions and operator is not able to commit to invalid state transitions without being halted by the smart contract
 
+### PLASMA CASH
+-   PLASMA is high level spec for UTXO based commit-chain
+-   all coins represented as serial numbers and every transfer allocates new owner for respective coin.
+-   coin is minted with on-chain deposit and cannot be merged or split with another coin on commit-chain. 
+-   this reduces practical applicability as payment system - is good for non-fungible tokens 
+-   fixed coin denomination
+-   agreed transition: transfer incomplete until recipient has verified entire coin transaction history - needs to be transmitted off-chain.  - transaction included in a hash commitment on parent chain and the hash commitment pre-image shared with user. 
+-   doesn't specify mechanism for free establishment - should support feature similar to nocust?
+-   
 
+## Lightning Network
+-   transactions sent over network of micro-payment channels, transfer value occurs off-blockchain
+-   bitcoin transactions signed with a new sighash type that addresses malleability, transfers may occur between untrusted parties
+-   contracts are enforced via broadcast over the bitcoin blockchain by using a series of decrementing timelocks. 
+-   
+-   bitcoin slow - gossip protocol
+-   if only two particpants care about a transaction does everyone need to know about it?
+-   defer telling everyone , do net settlement later
+-   trustless structure can be created by using time locks as a component to global consensus. 
 
 
  
