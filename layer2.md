@@ -69,3 +69,49 @@
 - assume everything is correct until a challenge proves otherwise
 - simple and cheap to generate - anyone can participate
 - 
+
+## SoK: Off the Chain Transactions  
+- send transactions off-chain, blockchain only as recourse for disputes  
+- "Categorizing the research into payment and state channels as well as commit-chains, we provide a comparison of protocols and properties."
+- show that layer 2 can scale blockchains, secure without full collaterization, privacy of layer 2 is not granted by default, fees depend on the transmitted transaction value.
+- 
+- use of broadcast in blockchains limits scalability to 10 tps  
+- layer two protocols are orthogonal scaling solution   
+- layer 2 scale blockchains whitout changing layer 1 trust assumptions and do not introduce additional consensus mechanisms  
+- off chain transactions through private communication instead of broadcasting transaction to parent chain  
+- throughput shout only be bounded by bandwidth and latency between private parties
+- security guaranteed through allocated collateral - in payment channel designs or with delayed transaction finality in commit-chain proposals [nocust]  
+- layer 2, two properties from blockchain layer:
+    - integrity: only valid transactions added to ledger
+    - eventual synchronicity with an upper time-bound: valid trans eventually added, before a critical timeout
+- layer 2 defined:
+    - 1. do not publish every transaction to blockchain immediately
+    - 2. entirely rely in consensus algorithm or parent chain 
+- 2 types:  
+- 1. channels are formed between n coequal parties
+- 2. commit-chains rely on central but untrusted intermediary
+
+### Channels 
+- channels private peer-to-peer with pre-set rules
+- 1. payment channels: off-chain payment interactions
+    - rapid one-way payments, bi-directional channel designs
+- 2. state channel: off-chain arbitary interactions
+    - generalize payment channels to support arbitary state transitions
+- channel overview: channel - n parties agree with unaminous consent to a new state of a previously agreed smart contract
+- 3 phases:
+    - 1. channel establishment: parties open a channel by locking collateral on blockchain. funds released by unaminous agreemnt or a pre-defined refund condition.
+    - 2. transition: channel open. update channel state in 2 steps. 
+        - 1. one party proposes new state transition - send signed command and state(i) to all other participants. Other parties re-compute state transition and verify proposed state before signing it and sending signature to all other parties.
+    - 3. disputes: honest party does not receive n signature before local timeout, assumes disagreement about local state
+- 
+
+ 
+
+
+
+
+References:
+
+[1] Gudgeon, Lewis, et al. "SoK: Off The Chain Transactions." IACR Cryptology ePrint Archive 2019 (2019): 360.
+[2] Poon, Joseph, and Vitalik Buterin. "Plasma: Scalable autonomous smart contracts." White paper (2017): 1-47.
+[3] Poon, Joseph, and Thaddeus Dryja. "The bitcoin lightning network: Scalable off-chain instant payments." (2016).
