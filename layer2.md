@@ -92,6 +92,7 @@
 - 2. commit-chains rely on central but untrusted intermediary
 
 ### Channels 
+
 - channels private peer-to-peer with pre-set rules
 - 1. payment channels: off-chain payment interactions
     - rapid one-way payments, bi-directional channel designs
@@ -102,8 +103,37 @@
     - 1. channel establishment: parties open a channel by locking collateral on blockchain. funds released by unaminous agreemnt or a pre-defined refund condition.
     - 2. transition: channel open. update channel state in 2 steps. 
         - 1. one party proposes new state transition - send signed command and state(i) to all other participants. Other parties re-compute state transition and verify proposed state before signing it and sending signature to all other parties.
-    - 3. disputes: honest party does not receive n signature before local timeout, assumes disagreement about local state
-- 
+    - 3. disputes: honest party does not receive n signature before local timeout, assumes disagreement about proposed state
+        - honest party can trigger a layer one dispute and enforce new state transition wo. the cooperation of other parties
+    
+- Properties and security guarantees of channels
+    - Unanimous Establishment: all n parties agree to establish
+    - Unanimous Transition: transition on layer 2 requires all n parties to agree  
+    - Balance Security: Honest party can always withdraw the agreed balance from channel with on-chain dispute
+    - State Progression: party can enforce an off chain state transition on chain, state machine thus always reaches a terminal state. 
+
+### NOCUST
+-   account based commit chain where on chain address associated to a commit chain account. 
+-   on chain contract expects to periodically receive a constant-sized commitment to the state of the commit-chain ledger from the operator containing each users account in the collateral pool
+-   commmitmnet to the potentially large state constructed to be efficient to prove and verify in smart contract that user commit-chain account updated correctly by operator. This is so transfers, deposits and withdrawls can be securely enacted. 
+-   a user can deposit any number of coins within a contract and perfomr commit-chain payments of any denomination towards other users
+-   TEX extends NOCUST to support atomic commit-chain swaps
+-   proposes free establishment - user can join commit chain without on chain transaction and immediately receive commit-chain transactions
+-   Agreed Transition: transaction created with signature of sender and operator to deter double spending.
+-   Balance Security: towards honest users even if other users and operators collude - trans. final when sender and operator agree to payment and payment comitted within periodic on chain checkpoint
+-   Offers only state progression - if operator stakes collateral towards the recipient. 
+-   Specifies mechanism to allocate collateral towards all commit-chain users within constant sized on chain commitment enabling instant transaction finality for the specified amounts. 
+-   allocated collateral is re-usable after each checkpoint.
+-   transaction throughput only limited by operator's bandwidth and processing, independent of checkpoint commitment interval.
+-   Users not required to be always online, are expected to monitor at regular time intervals - observe checkpoint commitments for sommitment integrity
+-   User only required to verify their respective balance proof by requesting data from operator and comparing it to the locally stored state
+-   Misbehaviour - user can issue challenge using NOCUST smart contract to force operator to promptly answer challenge with valid information
+-   If operator responds with invalid information or doesn't respond there is accountable proof of misbehaviour
+-   to strengthen operator's integrity uses provably consistentmode of operation through the use of zkSNARKS. 
+-   underlying smart contract validates layer 2 state transitions and operator is not able to commit to invalid state transitions without being halted by the smart contract
+
+
+
 
  
 
@@ -115,3 +145,4 @@ References:
 [1] Gudgeon, Lewis, et al. "SoK: Off The Chain Transactions." IACR Cryptology ePrint Archive 2019 (2019): 360.
 [2] Poon, Joseph, and Vitalik Buterin. "Plasma: Scalable autonomous smart contracts." White paper (2017): 1-47.
 [3] Poon, Joseph, and Thaddeus Dryja. "The bitcoin lightning network: Scalable off-chain instant payments." (2016).
+[4] Khalil, Rami, Arthur Gervais, and G. Felley. "NOCUST-A Non-Custodial 2nd-Layer Financial Intermediary." IACR Cryptology ePrint Archive 2018 (2018): 642.
